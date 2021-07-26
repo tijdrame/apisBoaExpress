@@ -196,8 +196,8 @@ public class ApiService {
                     transaction.setDevisedestination(obj.getJSONObject("transaction").getString("devisedestination"));
                     transaction.setDeviseenvoi(obj.getJSONObject("transaction").getString("deviseenvoi"));
                     transaction.setFrais(obj.getJSONObject("transaction").getDouble("frais"));
-                    transaction.setIdemetteur(obj.getJSONObject("transaction").getString("idemetteur"));
-                    transaction.setIdrecepteur(obj.getJSONObject("transaction").getString("idrecepteur"));
+                    transaction.setIdemetteur(obj.getJSONObject("transaction").getInt("idemetteur"));
+                    transaction.setIdrecepteur(obj.getJSONObject("transaction").getInt("idrecepteur"));
                     transaction.setMontant(obj.getJSONObject("transaction").getDouble("montant"));
                     transaction.setMontantaupaiement(obj.getJSONObject("transaction").getDouble("montantaupaiement"));
                     transaction.setNumerotransaction(obj.getJSONObject("transaction").getString("numerotransaction"));
@@ -365,23 +365,25 @@ public class ApiService {
                     genericResp.setDetailsop(obj.getString("detailsop"));
                     Fraistransaction frais = new Fraistransaction();
                     frais
-                        .autretaxe1(obj.getJSONObject("fraisetchange").getString("autretaxe1"))
-                        .autretaxe2(obj.getJSONObject("fraisetchange").getString("autretaxe2"))
-                        .autretaxe3(obj.getJSONObject("fraisetchange").getString("autretaxe3"))
+                        .autretaxe1(obj.getJSONObject("fraisetchange").getDouble("autretaxe1"))
+                        .autretaxe2(obj.getJSONObject("fraisetchange").getDouble("autretaxe2"))
+                        .autretaxe3(obj.getJSONObject("fraisetchange").getDouble("autretaxe3"))
                         .codepartenaire(obj.getJSONObject("fraisetchange").getString("codepartenaire"))
                         .devisedestination(obj.getJSONObject("fraisetchange").getString("devisedestination"))
                         .deviseenvoi(obj.getJSONObject("fraisetchange").getString("deviseenvoi"))
-                        .frais(obj.getJSONObject("fraisetchange").getString("frais"))
-                        .montant(obj.getJSONObject("fraisetchange").getString("montant"))
+                        .frais(obj.getJSONObject("fraisetchange").getDouble("frais"))
+                        .montant(obj.getJSONObject("fraisetchange").getDouble("montant"))
                         .paysdestination(obj.getJSONObject("fraisetchange").getString("paysdestination"))
                         .paysenvoi(obj.getJSONObject("fraisetchange").getString("paysenvoi"))
-                        .tva(obj.getJSONObject("fraisetchange").getString("tva"))
-                        .typetransaction(obj.getJSONObject("fraisetchange").getString("typetransaction"));
+                        .tva(obj.getJSONObject("fraisetchange").getDouble("tva"))
+                        .montantAuPaiement(obj.getJSONObject("fraisetchange").getDouble("montantaupaiement"))
+                        .montantsendenusd(obj.getJSONObject("fraisetchange").getDouble("montantsendenusd"))
+                        .typetransaction(obj.getJSONObject("fraisetchange").getInt("typetransaction"));
                     genericResp.setFraistransaction(frais);
                     genericResp.setCode(ICodeDescResponse.SUCCES_CODE);
                     genericResp.setDescription(ICodeDescResponse.SUCCES_DESCRIPTION);
                     genericResp.setDateResponse(Instant.now());
-                    genericResp.codeop(obj.getString("codeop"));
+                    genericResp.codeop(obj.getInt("codeop"));
                     tracking =
                         createTracking(
                             tracking,
@@ -394,7 +396,7 @@ public class ApiService {
                 } else if (obj.get("getfraisettauxdechangeresponse").toString().contains("detailsop")) {
                     obj = obj.getJSONObject("getfraisettauxdechangeresponse");
                     genericResp.setDetailsop(obj.getString("detailsop"));
-                    genericResp.setCodeop(obj.getString("codeop"));
+                    genericResp.setCodeop(obj.getInt("codeop"));
                     genericResp.setCode(ICodeDescResponse.ECHEC_CODE);
                     genericResp.setDateResponse(Instant.now());
                     genericResp.setDescription(ICodeDescResponse.ECHEC_DESCRIPTION);
@@ -554,7 +556,7 @@ public class ApiService {
 
                     obj = obj.getJSONObject("confirmationresponse");
                     genericResp.detailsop(obj.getString("detailsop"));
-                    genericResp.setCodeop(obj.getString("codeop"));
+                    genericResp.setCodeop(obj.getInt("codeop"));
                     Confirmdeposit confirmdeposit = new Confirmdeposit();
                     confirmdeposit
                         .codepartenaire(obj.getJSONObject("details").getString("codepartenaire"))
@@ -579,7 +581,7 @@ public class ApiService {
                     // Confirmdeposit confirmdeposit = new Confirmdeposit();
                     // confirmdeposit.
                     genericResp.setDetailsop(obj.getString("detailsop"));
-                    genericResp.setCodeop(obj.getString("codeop"));
+                    genericResp.setCodeop(obj.getInt("codeop"));
                     genericResp.setCode(ICodeDescResponse.ECHEC_CODE);
                     genericResp.setDateResponse(Instant.now());
                     genericResp.setDescription(ICodeDescResponse.ECHEC_DESCRIPTION);
@@ -724,7 +726,7 @@ public class ApiService {
 
                     obj = obj.getJSONObject("gettransactionstatusbyreferenceresponse");
                     genericResp.detailsop(obj.getString("detailsop"));
-                    genericResp.setCodeop(obj.getString("codeop"));
+                    genericResp.setCodeop(obj.getInt("codeop"));
                     Status status = new Status();
                     status
                         .codepartenaire(obj.getJSONObject("statut").getString("codepartenaire"))
@@ -744,7 +746,7 @@ public class ApiService {
                 } else {
                     // obj = obj.getJSONObject("xxx");
                     genericResp.setDetailsop(obj.getString("detailsop"));
-                    genericResp.setCodeop(obj.getString("codeop"));
+                    genericResp.setCodeop(obj.getInt("codeop"));
                     genericResp.setCode(ICodeDescResponse.ECHEC_CODE);
                     genericResp.setDateResponse(Instant.now());
                     genericResp.setDescription(ICodeDescResponse.ECHEC_DESCRIPTION);
@@ -895,7 +897,7 @@ public class ApiService {
                         .numerotransaction(obj.getJSONObject("statut").getString("numerotransaction"));
                     genericResp.setStatus(status);
                     genericResp.detailsop(obj.getString("detailsop"));
-                    genericResp.setCodeop(obj.getString("codeop"));
+                    genericResp.setCodeop(obj.getInt("codeop"));
 
                     tracking =
                         createTracking(
@@ -911,7 +913,7 @@ public class ApiService {
                     // Confirmdeposit confirmdeposit = new Confirmdeposit();
                     // confirmdeposit.
                     genericResp.setDetailsop(obj.getString("detailsop"));
-                    genericResp.setCodeop(obj.getString("codeop"));
+                    genericResp.setCodeop(obj.getInt("codeop"));
                     genericResp.setCode(ICodeDescResponse.ECHEC_CODE);
                     genericResp.setDateResponse(Instant.now());
                     genericResp.setDescription(ICodeDescResponse.ECHEC_DESCRIPTION);

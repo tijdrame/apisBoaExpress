@@ -7,13 +7,15 @@ public class Fraistransaction {
     private String deviseenvoi;
     private String paysdestination;
     private String devisedestination;
-    private String typetransaction;
-    private String montant;
-    private String frais;
-    private String tva;
-    private String autretaxe1;
-    private String autretaxe2;
-    private String autretaxe3;
+    private Integer typetransaction;
+    private Double montant;
+    private Double frais;
+    private Double tva;
+    private Double autretaxe1;
+    private Double autretaxe2;
+    private Double autretaxe3;
+    private Double montantAuPaiement;
+    private Double montantsendenusd;
 
     public Fraistransaction() {}
 
@@ -23,13 +25,15 @@ public class Fraistransaction {
         String deviseenvoi,
         String paysdestination,
         String devisedestination,
-        String typetransaction,
-        String montant,
-        String frais,
-        String tva,
-        String autretaxe1,
-        String autretaxe2,
-        String autretaxe3
+        Integer typetransaction,
+        Double montant,
+        Double frais,
+        Double tva,
+        Double autretaxe1,
+        Double autretaxe2,
+        Double autretaxe3,
+        Double montantAuPaiement,
+        Double montantsendenusd
     ) {
         this.codepartenaire = codepartenaire;
         this.paysenvoi = paysenvoi;
@@ -43,6 +47,8 @@ public class Fraistransaction {
         this.autretaxe1 = autretaxe1;
         this.autretaxe2 = autretaxe2;
         this.autretaxe3 = autretaxe3;
+        this.montantAuPaiement = montantAuPaiement;
+        this.montantsendenusd = montantsendenusd;
     }
 
     public String getCodepartenaire() {
@@ -85,119 +91,145 @@ public class Fraistransaction {
         this.devisedestination = devisedestination;
     }
 
-    public String getTypetransaction() {
+    public Integer getTypetransaction() {
         return this.typetransaction;
     }
 
-    public void setTypetransaction(String typetransaction) {
+    public void setTypetransaction(Integer typetransaction) {
         this.typetransaction = typetransaction;
     }
 
-    public String getMontant() {
+    public Double getMontant() {
         return this.montant;
     }
 
-    public void setMontant(String montant) {
+    public void setMontant(Double montant) {
         this.montant = montant;
     }
 
-    public String getFrais() {
+    public Double getFrais() {
         return this.frais;
     }
 
-    public void setFrais(String frais) {
+    public void setFrais(Double frais) {
         this.frais = frais;
     }
 
-    public String getTva() {
+    public Double getTva() {
         return this.tva;
     }
 
-    public void setTva(String tva) {
+    public void setTva(Double tva) {
         this.tva = tva;
     }
 
-    public String getAutretaxe1() {
+    public Double getAutretaxe1() {
         return this.autretaxe1;
     }
 
-    public void setAutretaxe1(String autretaxe1) {
+    public void setAutretaxe1(Double autretaxe1) {
         this.autretaxe1 = autretaxe1;
     }
 
-    public String getAutretaxe2() {
+    public Double getAutretaxe2() {
         return this.autretaxe2;
     }
 
-    public void setAutretaxe2(String autretaxe2) {
+    public void setAutretaxe2(Double autretaxe2) {
         this.autretaxe2 = autretaxe2;
     }
 
-    public String getAutretaxe3() {
+    public Double getAutretaxe3() {
         return this.autretaxe3;
     }
 
-    public void setAutretaxe3(String autretaxe3) {
+    public void setAutretaxe3(Double autretaxe3) {
         this.autretaxe3 = autretaxe3;
     }
 
+    public Double getMontantAuPaiement() {
+        return this.montantAuPaiement;
+    }
+
+    public void setMontantAuPaiement(Double montantAuPaiement) {
+        this.montantAuPaiement = montantAuPaiement;
+    }
+
+    public Double getMontantsendenusd() {
+        return this.montantsendenusd;
+    }
+
+    public void setMontantsendenusd(Double montantsendenusd) {
+        this.montantsendenusd = montantsendenusd;
+    }
+
     public Fraistransaction codepartenaire(String codepartenaire) {
-        this.codepartenaire = codepartenaire;
+        setCodepartenaire(codepartenaire);
         return this;
     }
 
     public Fraistransaction paysenvoi(String paysenvoi) {
-        this.paysenvoi = paysenvoi;
+        setPaysenvoi(paysenvoi);
         return this;
     }
 
     public Fraistransaction deviseenvoi(String deviseenvoi) {
-        this.deviseenvoi = deviseenvoi;
+        setDeviseenvoi(deviseenvoi);
         return this;
     }
 
     public Fraistransaction paysdestination(String paysdestination) {
-        this.paysdestination = paysdestination;
+        setPaysdestination(paysdestination);
         return this;
     }
 
     public Fraistransaction devisedestination(String devisedestination) {
-        this.devisedestination = devisedestination;
+        setDevisedestination(devisedestination);
         return this;
     }
 
-    public Fraistransaction typetransaction(String typetransaction) {
-        this.typetransaction = typetransaction;
+    public Fraistransaction typetransaction(Integer typetransaction) {
+        setTypetransaction(typetransaction);
         return this;
     }
 
-    public Fraistransaction montant(String montant) {
-        this.montant = montant;
+    public Fraistransaction montant(Double montant) {
+        setMontant(montant);
         return this;
     }
 
-    public Fraistransaction frais(String frais) {
-        this.frais = frais;
+    public Fraistransaction frais(Double frais) {
+        setFrais(frais);
         return this;
     }
 
-    public Fraistransaction tva(String tva) {
-        this.tva = tva;
+    public Fraistransaction tva(Double tva) {
+        setTva(tva);
         return this;
     }
 
-    public Fraistransaction autretaxe1(String autretaxe1) {
-        this.autretaxe1 = autretaxe1;
+    public Fraistransaction autretaxe1(Double autretaxe1) {
+        setAutretaxe1(autretaxe1);
         return this;
     }
 
-    public Fraistransaction autretaxe2(String autretaxe2) {
-        this.autretaxe2 = autretaxe2;
+    public Fraistransaction autretaxe2(Double autretaxe2) {
+        setAutretaxe2(autretaxe2);
         return this;
     }
 
-    public Fraistransaction autretaxe3(String autretaxe3) {
-        this.autretaxe3 = autretaxe3;
+    public Fraistransaction autretaxe3(Double autretaxe3) {
+        setAutretaxe3(autretaxe3);
+        return this;
+    }
+
+    public Fraistransaction montantAuPaiement(Double montantAuPaiement) {
+        setMontantAuPaiement(montantAuPaiement);
+        return this;
+    }
+
+    public Fraistransaction montantsendenusd(Double montantsendenusd) {
+        setMontantsendenusd(montantsendenusd);
         return this;
     }
 
@@ -240,6 +272,12 @@ public class Fraistransaction {
             "'" +
             ", autretaxe3='" +
             getAutretaxe3() +
+            "'" +
+            ", montantAuPaiement='" +
+            getMontantAuPaiement() +
+            "'" +
+            ", montantsendenusd='" +
+            getMontantsendenusd() +
             "'" +
             "}"
         );

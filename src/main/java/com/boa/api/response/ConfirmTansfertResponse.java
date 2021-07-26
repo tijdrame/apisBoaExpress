@@ -2,23 +2,23 @@ package com.boa.api.response;
 
 public class ConfirmTansfertResponse extends GenericResponse {
 
-    private String codeop;
+    private Integer codeop;
     private String detailsop;
     private Confirmdeposit confirmdeposit;
 
     public ConfirmTansfertResponse() {}
 
-    public ConfirmTansfertResponse(String codeop, String detailsop, Confirmdeposit confirmdeposit) {
+    public ConfirmTansfertResponse(Integer codeop, String detailsop, Confirmdeposit confirmdeposit) {
         this.codeop = codeop;
         this.detailsop = detailsop;
         this.confirmdeposit = confirmdeposit;
     }
 
-    public String getCodeop() {
+    public Integer getCodeop() {
         return this.codeop;
     }
 
-    public void setCodeop(String codeop) {
+    public void setCodeop(Integer codeop) {
         this.codeop = codeop;
     }
 
@@ -38,7 +38,7 @@ public class ConfirmTansfertResponse extends GenericResponse {
         this.confirmdeposit = confirmdeposit;
     }
 
-    public ConfirmTansfertResponse codeop(String codeop) {
+    public ConfirmTansfertResponse codeop(Integer codeop) {
         this.codeop = codeop;
         return this;
     }

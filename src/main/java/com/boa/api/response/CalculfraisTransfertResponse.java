@@ -2,23 +2,23 @@ package com.boa.api.response;
 
 public class CalculfraisTransfertResponse extends GenericResponse {
 
-    private String codeop;
+    private Integer codeop;
     private String detailsop;
     private Fraistransaction fraistransaction;
 
     public CalculfraisTransfertResponse() {}
 
-    public CalculfraisTransfertResponse(String codeop, String detailsop, Fraistransaction fraistransaction) {
+    public CalculfraisTransfertResponse(Integer codeop, String detailsop, Fraistransaction fraistransaction) {
         this.codeop = codeop;
         this.detailsop = detailsop;
         this.fraistransaction = fraistransaction;
     }
 
-    public String getCodeop() {
+    public Integer getCodeop() {
         return this.codeop;
     }
 
-    public void setCodeop(String codeop) {
+    public void setCodeop(Integer codeop) {
         this.codeop = codeop;
     }
 
@@ -38,7 +38,7 @@ public class CalculfraisTransfertResponse extends GenericResponse {
         this.fraistransaction = fraistransaction;
     }
 
-    public CalculfraisTransfertResponse codeop(String codeop) {
+    public CalculfraisTransfertResponse codeop(Integer codeop) {
         this.codeop = codeop;
         return this;
     }

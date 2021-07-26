@@ -14,8 +14,8 @@ public class Transaction {
     private Double autretaxe1;
     private Double autretaxe2;
     private Double autretaxe3;
-    private String idemetteur;
-    private String idrecepteur;
+    private Integer idemetteur;
+    private Integer idrecepteur;
     private Integer typetransaction;
     private String paysenvoi;
     private String paysdestination;
@@ -35,8 +35,8 @@ public class Transaction {
         Double autretaxe1,
         Double autretaxe2,
         Double autretaxe3,
-        String idemetteur,
-        String idrecepteur,
+        Integer idemetteur,
+        Integer idrecepteur,
         Integer typetransaction,
         String paysenvoi,
         String paysdestination
@@ -156,19 +156,19 @@ public class Transaction {
         this.autretaxe3 = autretaxe3;
     }
 
-    public String getIdemetteur() {
+    public Integer getIdemetteur() {
         return this.idemetteur;
     }
 
-    public void setIdemetteur(String idemetteur) {
+    public void setIdemetteur(Integer idemetteur) {
         this.idemetteur = idemetteur;
     }
 
-    public String getIdrecepteur() {
+    public Integer getIdrecepteur() {
         return this.idrecepteur;
     }
 
-    public void setIdrecepteur(String idrecepteur) {
+    public void setIdrecepteur(Integer idrecepteur) {
         this.idrecepteur = idrecepteur;
     }
 
@@ -256,12 +256,12 @@ public class Transaction {
         return this;
     }
 
-    public Transaction idemetteur(String idemetteur) {
+    public Transaction idemetteur(Integer idemetteur) {
         this.idemetteur = idemetteur;
         return this;
     }
 
-    public Transaction idrecepteur(String idrecepteur) {
+    public Transaction idrecepteur(Integer idrecepteur) {
         this.idrecepteur = idrecepteur;
         return this;
     }

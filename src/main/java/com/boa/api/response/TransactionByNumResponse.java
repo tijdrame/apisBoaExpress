@@ -2,21 +2,22 @@ package com.boa.api.response;
 
 public class TransactionByNumResponse extends GenericResponse {
 
-    private String codeop, detailsop;
+    private String detailsop;
+    private Integer codeop;
     private Status status;
 
     public TransactionByNumResponse() {}
 
-    public TransactionByNumResponse(String codeop, String detailsop) {
+    public TransactionByNumResponse(Integer codeop, String detailsop) {
         this.codeop = codeop;
         this.detailsop = detailsop;
     }
 
-    public String getCodeop() {
+    public Integer getCodeop() {
         return this.codeop;
     }
 
-    public void setCodeop(String codeop) {
+    public void setCodeop(Integer codeop) {
         this.codeop = codeop;
     }
 
@@ -28,7 +29,7 @@ public class TransactionByNumResponse extends GenericResponse {
         this.detailsop = detailsop;
     }
 
-    public TransactionByNumResponse codeop(String codeop) {
+    public TransactionByNumResponse codeop(Integer codeop) {
         this.codeop = codeop;
         return this;
     }
@@ -38,7 +39,7 @@ public class TransactionByNumResponse extends GenericResponse {
         return this;
     }
 
-    public TransactionByNumResponse(String codeop, String detailsop, Status status) {
+    public TransactionByNumResponse(Integer codeop, String detailsop, Status status) {
         this.codeop = codeop;
         this.detailsop = detailsop;
         this.status = status;
